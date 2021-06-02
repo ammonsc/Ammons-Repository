@@ -1,0 +1,49 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+Import Data
+```{r}
+library(haven)
+mining <- read_sas("http://www.principlesofeconometrics.com/sas/mining.sas7bdat", 
+    NULL)
+```
+
+Wrangle Data
+```{r}
+
+library(dplyr)
+
+mining %>%
+ filter(!(YEAR %in% c("1972", "1973", "1974", "1975", "1976", "1977", "1978", 
+"1979"))) %>%
+ filter(QTR %in% "4") %>%
+ filter(PRO >= 100.4 & PRO <= 118.6) %>%
+ filter(POW >= 
+    67L & POW <= 105L)
+
+
+```
+
+ggplot2 data vis
+```{r}
+p <- ggplot(mining) +
+ aes(x = PRO, y = POW) +
+ geom_point(size = 1L, colour = "#0c4c8a") +
+ theme_minimal()
+
+p
+
+
+```
+
+Plotly
+```{r}
+
+library(plotly)
+ggplotly(p)
+
+
+```
