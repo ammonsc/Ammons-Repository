@@ -1,5 +1,5 @@
 ---
-title: "R Notebook_ My awesome file"
+title: "R Notebook_ My awesome file IS so Awesome"
 output: html_notebook
 ---
 
@@ -17,7 +17,7 @@ Wrangle Data
 library(dplyr)
 
 mining %>%
- filter(!(YEAR %in% c("1972", "1973", "1974", "1975", "1976", "1977", "1978"))) %>%
+ filter(!(YEAR %in% c("1972", "1973", "1974", "1975", "1976", "1977"))) %>%
  filter(QTR %in% "4") %>%
  filter(PRO >= 100.4 & PRO <= 118.6) %>%
  filter(POW >= 
